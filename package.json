@@ -1,0 +1,24 @@
+{
+  "name": "flow-myanimelist",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A myanimelist plugin for flow launcher",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "flow-launcher",
+    "myanimelist"
+  ],
+  "author": "Nothingness",
+  "license": "ISC",
+  "dependencies": {
+    "flow-launcher-helper": "^2.2.0",
+    "mal-scraper": "^2.13.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.3"
+  }
+}

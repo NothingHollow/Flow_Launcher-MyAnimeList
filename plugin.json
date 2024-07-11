@@ -1,0 +1,12 @@
+{
+    "ID": "7463e642-7ab5-4df5-b537-56eefcc53e74",
+    "ActionKeyword": "mal",
+    "Name": "MyAnimeList",
+    "Description": "Search MyAnimeList with Flow Launcher",
+    "Author": "Nothingness",
+    "Version": "1.0.0",
+    "Language": "typescript",
+    "Website": "https://github.com/NothingHollow/Flow_Launcher-MyAnimeList",
+    "ExecuteFileName": "./build/index.js",
+    "IcoPath": "public/app.png"
+  }
