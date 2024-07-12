@@ -7,14 +7,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import open from 'open';
 import { Flow } from "flow-launcher-helper";
 import malScraper from "mal-scraper";
 const search = malScraper.search;
 const { params, showResult, on, run, settings } = new Flow("app.png");
 on("query", () => __awaiter(void 0, void 0, void 0, function* () {
+    if (params.length <= 2) {
+        return showResult({
+            title: 'Waiting for query...',
+        });
+    }
     try {
-        const data = yield search.search("anime", {
-            term: params,
+        const searchQuery = params.includes("manga") ? "manga" : (settings.searchType ? settings.searchType : "anime");
+        const data = yield search.search(searchQuery, {
+            term: params.replace("anime", "").replace("manga", ""),
             maxResults: 15,
         });
         const results = [];

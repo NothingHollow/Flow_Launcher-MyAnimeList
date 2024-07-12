@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-          zip -r MyAnimeList.zip . -x '*.git*'
+          zip -r MyAnimeList-${{steps.version.outputs.prop}}.zip . -x '*.git*'
       - name: Publish
         uses: softprops/action-gh-release@v1
         with:

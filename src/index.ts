@@ -1,29 +1,34 @@
-// import open from 'open';
+import open from 'open';
 import { Flow, JSONRPCResponse } from "flow-launcher-helper";
-import malScraper, { AnimeSearchModel } from "mal-scraper";
+import malScraper, { AnimeSearchModel, MangaSearchModel } from "mal-scraper";
 const search = malScraper.search;
 
 // console.log(search.helpers);
 
 type Methods = "open_result";
 
-// interface Settings {
-//   sort: string;
-//   locale: string;
-// }
+interface Settings {
+  searchType: "anime" | "manga"
+}
 
-const { params, showResult, on, run, settings } = new Flow<Methods>("app.png");
+const { params, showResult, on, run, settings } = new Flow<Methods, Settings>("app.png");
 
 on("query", async () => {
+  if (params.length <= 2) {
+    return showResult({
+      title: 'Waiting for query...',
+    });
+  }
   try {
-    const data = await search.search("anime", {
-      term: params,
+    const searchQuery = params.includes("manga") ? "manga" : (settings.searchType ? settings.searchType : "anime")
+    const data = await search.search(searchQuery, {
+      term: params.replace("anime", "").replace("manga", ""),
       maxResults: 15,
     });
 
     const results: JSONRPCResponse<Methods>[] = [];
 
-    data.forEach((data: AnimeSearchModel) => {
+    data.forEach((data: AnimeSearchModel | MangaSearchModel) => {
       const subtitle = data.shortDescription
         .replace(/(\n\s?)/gm, "")
         .substring(0, 120);
@@ -38,7 +43,7 @@ on("query", async () => {
     });
 
     showResult(...results);
-  } catch(err) {
+  } catch (err) {
     return showResult({
       title: "Uh oh... an error occured..",
       subtitle: err as string,
@@ -47,7 +52,7 @@ on("query", async () => {
 });
 
 on("open_result", () => {
-  const url = params
+  const url = params;
   open(url);
 });
 

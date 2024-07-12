@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "flow-launcher-helper": "^2.2.0",
-    "mal-scraper": "^2.13.1"
+    "mal-scraper": "^2.13.1",
+    "open": "^10.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.10",

@@ -1,0 +1,17 @@
+body:
+  # - type: passwordBox
+  #   attributes:
+  #     name: apiKey
+  #     label: API Key
+  #     description: MyAnimeList User API Key
+  - type: dropdown
+    attributes:
+      name: searchType
+      label: Default Search Type
+      description: >-
+        Either Anime or Manga when searching, defaults to anime. Insert either
+        anime or manga specifically in the params to search specifically.
+      defaultValue: anime
+      options:
+        - anime
+        - manga
