@@ -4,7 +4,7 @@
   "Name": "MyAnimeList",
   "Description": "Search MyAnimeList within Flow Launcher",
   "Author": "Nothingness",
-  "Version": "1.0.4",
+  "Version": "2.0.0",
   "Language": "typescript",
   "Website": "https://github.com/NothingHollow/Flow_Launcher-MyAnimeList",
   "ExecuteFileName": "./build/index.js",
