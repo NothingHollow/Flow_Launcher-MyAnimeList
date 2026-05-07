@@ -1,9 +1,31 @@
 body:
-  # - type: passwordBox
-  #   attributes:
-  #     name: apiKey
-  #     label: API Key
-  #     description: MyAnimeList User API Key
+  - type: passwordBox
+    attributes:
+      name: clientId
+      label: MAL Client ID / API Key
+      description: >-
+        Client ID from https://myanimelist.net/apiconfig. Used for official
+        API search and for MAL account sign-in with "mal auth". Set the MAL
+        app redirect URL to http://127.0.0.1:53142/callback.
+  - type: passwordBox
+    attributes:
+      name: clientSecret
+      label: MAL Client Secret / API Secret
+      description: >-
+        Required for "mal auth" and token refresh. Copy this from your
+        MyAnimeList API client settings.
+  - type: passwordBox
+    attributes:
+      name: accessToken
+      label: MAL Access Token
+      description: >-
+        Optional. Paste a Bearer access token here to skip "mal auth".
+  - type: passwordBox
+    attributes:
+      name: refreshToken
+      label: MAL Refresh Token
+      description: >-
+        Optional. Used with the Client ID and Client Secret to refresh an OAuth token.
   - type: dropdown
     attributes:
       name: searchType

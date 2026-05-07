@@ -3,3 +3,7 @@
 
 # Build
 /build
+
+# Local auth cache
+/.mal-auth.json
+/.mal-auth
